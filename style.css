@@ -1,0 +1,20 @@
+html, 
+body{
+    margin: 10px;
+    padding: 10px;
+}
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 200px;
+    border: 3px solid yellowgreen;
+}
+.square{
+    width: 20px;
+    height: 20px;
+}
+.snake{
+    background : black;
+}
