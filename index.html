@@ -8,17 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Snake Game</h1>
-    <button id="start">Start / Restart</button>
-    <h2>Score: <span id="score">0</span></h2>
-    
-    <div class="grid">
+    <div class="main-content">
+        <div class="container">
+            <h1>Snake Game 🐍</h1>
+            <h2>Score:<span id="score"> 0</span></h2>
+            <button id="start">Start / Restart</button>
+            <p></p>
+        </div>
+        <div class="container">
+            <p id="message"></p>
+            <div class="grid">
+            </div>
+            <button id="btn-right">➡️</button>
+            <button id="btn-left">⬅️</button>
+            <button id="btn-up">⬆️</button>
+            <button id="btn-down">⬇️</button>
+        </div>
     </div>
-
-    <button id="btn-right">➡️</button>
-    <button id="btn-left">⬅️</button>
-    <button id="btn-up">⬆️</button>
-    <button id="btn-down">⬇️</button>
+   
+   
 
     <script src="index.js"></script>
 </body>
