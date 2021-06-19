@@ -1,15 +1,65 @@
 html, 
 body{
-    margin: 10px;
-    padding: 10px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    background: linear-gradient(#FFEAC9, #A0937D, #B2AB8C);
+    background-attachment: fixed;
+}
+.main-content{
+    margin-top: 50px;
+ display: flex;
+ justify-content: space-around;
 }
 
+.container{
+    border: 1px solid #000;
+    width: 500px;
+    height: 500px;
+}
+h1{
+    margin-top: 10px;
+}
+
+h2{
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+button{
+padding: 10px 25px;
+background: yellowgreen;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 15px;
+font-weight: bold;
+color: #fff;
+margin-top: 10px;
+margin-bottom: 0;
+}
+
+button:active{
+    background: orange;
+}
 .grid{
     display: flex;
     flex-wrap: wrap;
-    width: 200px;
-    height: 200px;
-    border: 3px solid yellowgreen;
+    width: 400px;
+    height: 400px;
+    border: 3px solid black;
+    margin: 0 auto;
+}
+.game-over{
+    border: 3px solid red;
+}
+.gameOverMessage{
+    margin-top: 2px;
+    margin-bottom: 5px;
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-style: italic;
 }
 .square{
     width: 20px;
@@ -19,5 +69,5 @@ body{
     background : black;
 }
 .apple{
-    background : red;
+    background : rgb(41, 4, 77);
 }

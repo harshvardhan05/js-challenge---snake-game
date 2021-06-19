@@ -1,13 +1,19 @@
 const grid = document.querySelector(".grid")
 const btnStart = document.querySelector("#start")
 const displayScore = document.querySelector("#score")
+const message = document.querySelector("#message")
 
-const moveRight = document.querySelector("#btn-right")
+const btnRight = document.querySelector("#btn-right")
+const btnLeft = document.querySelector("#btn-left")
+const btnUp = document.querySelector("#btn-up")
+const btnDown = document.querySelector("#btn-down")
+
+
 
 let squares = []
 let currentSnake = [2,1,0]
 let direction = 1
-let width = 10
+let width = 20
 let appleIndex = 0
 let score = 0
 let timeInterval = 1000
@@ -17,7 +23,7 @@ let timerId = 0
 
 function createGrid(){
     //create 100 of these elements with a for loop
-    for(let i=0; i<100; i++){
+    for(let i=0; i<400; i++){
      //create element
      const square = document.createElement("div")
      //add styling to the element
@@ -45,11 +51,15 @@ function startGame(){
     score = 0
     //readd initial score to the browser
     displayScore.textContent = score
+    displayScore.classList.remove(".gameOverMessage")
     direction = 1
     timeInterval = 1000
+    message.classList.add("gameOverMessage")
+    message.textContent = "Game Start"
     generateApples()
     
-     timerId = setInterval(move, timeInterval)
+    grid.classList.remove("game-over")
+    timerId = setInterval(move, timeInterval)
 }
 
 function move(){
@@ -59,8 +69,13 @@ function move(){
         (currentSnake[0] % width === 0 && direction === -1) || //if snake has hit left wall
         (currentSnake[0] - width < 0 && direction === -width) || //if snake has hit top
         squares[currentSnake[0] + direction].classList.contains('snake')
-    )
-    return clearInterval(timerId)
+    ){
+        message.style.display = "block"
+        message.textContent = "Game Over"
+        message.classList.add("gameOverMessage")
+        grid.classList.add("game-over")
+        return clearInterval(timerId)
+    }
 
 
 
@@ -115,11 +130,30 @@ function control(e) {
     } else if(e.keyCode === 39){
         console.log("right movement")
         direction = 1
-    } else if(e.keyCode === 40){
+    } else if(e.keyCode === 40 ){
         console.log("down movement")
         direction = +width
     }
 }
 
  document.addEventListener("keydown", control)
- btnStart.addEventListener("click", startGame )
+ btnStart.addEventListener("click", startGame)
+
+
+btnRight.addEventListener("click", function(){
+    direction = 1
+})
+
+btnLeft.addEventListener("click", function(){
+    direction = -1
+})
+
+btnUp.addEventListener("click", function(){
+    direction = -width
+})
+
+btnDown.addEventListener("click", function(){
+    direction = width
+})
+ 
+ 
